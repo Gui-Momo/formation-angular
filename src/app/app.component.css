@@ -1,0 +1,95 @@
+.letter {
+  border-radius: 50%;
+  text-align: center;
+  font-family: "Cursive standard";
+  width: 95%;
+  height: 95%;
+}
+
+.word-letter {
+  background-color: #d3d3d3;
+}
+
+.board-letter {
+  background-color: #add8e6;
+}
+
+.vowel {
+  color: blue;
+}
+
+.consonant {
+  color: red;
+}
+
+.letter-row {
+  margin-top: 0.4rem;
+}
+
+.word-row {
+  margin-top: 1rem;
+}
+
+.word-img {
+  width: 75%;
+  /* Override img-thumbnail padding */
+  padding: 1px;
+}
+
+.reveal-btn {
+  width: 100%;
+}
+/*
+ * Tricks found in http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+ * I struggle several hours before finding this solution...
+ */
+.box:before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* initial ratio of 1:1*/
+}
+
+.in-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Xtra Small devices (below 576px) */
+@media (min-width: 0px) {
+  .letter {
+    font-size: 0.9rem;
+    padding-top: 0.1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .letter {
+    font-size: 1.5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .letter {
+    padding-top: 0.5rem;
+    font-size: 1.75rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .letter {
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .letter {
+    font-size: 3rem;
+  }
+}
