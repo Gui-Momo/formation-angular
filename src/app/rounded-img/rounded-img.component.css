@@ -1,0 +1,5 @@
+.rounded-img {
+  width: 75%;
+  /* Override img-thumbnail padding */
+  padding: 1px;
+}

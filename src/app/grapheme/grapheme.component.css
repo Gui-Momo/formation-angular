@@ -1,0 +1,56 @@
+:host {
+  border-radius: 50%;
+  text-align: center;
+  font-family: "Cursive standard";
+  width: 95%;
+  height: 95%;
+}
+
+.vowel {
+  color: blue;
+}
+
+.consonant {
+  color: red;
+}
+
+.complex {
+  color: green;
+}
+
+/* Xtra Small devices (below 576px) */
+@media (min-width: 0px) {
+  :host {
+    font-size: 0.9rem;
+    padding-top: 0.1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  :host {
+    font-size: 1.5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  :host {
+    padding-top: 0.5rem;
+    font-size: 1.75rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  :host {
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  :host {
+    font-size: 3rem;
+  }
+}
