@@ -12,6 +12,7 @@ import { GraphemeComponent } from './grapheme/grapheme.component';
 import { WordGraphemeComponent } from './word-grapheme/word-grapheme.component';
 import { BoardGraphemeComponent } from './board-grapheme/board-grapheme.component';
 import { WordComponent } from './word/word.component';
+import { SoundService } from "./sound/sound.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { WordComponent } from './word/word.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    SoundService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
