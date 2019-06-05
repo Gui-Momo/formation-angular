@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { Grapheme, GraphemeType } from "./grapheme.model";
 
-import { GRAPHEMES } from "./graphemes-fr.data";
+import { GRAPHEMES } from "./grapheme-fr";
 
 export type LanguageGraphemes = {
   vowels: Grapheme[];

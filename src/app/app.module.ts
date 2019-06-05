@@ -13,6 +13,7 @@ import { WordGraphemeComponent } from './word-grapheme/word-grapheme.component';
 import { BoardGraphemeComponent } from './board-grapheme/board-grapheme.component';
 import { WordComponent } from './word/word.component';
 import { SoundService } from "./sound/sound.service";
+import { GraphemeService } from './grapheme/grapheme.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SoundService } from "./sound/sound.service";
     AppRoutingModule
   ],
   providers: [
-    SoundService
+    SoundService,
+    GraphemeService
   ],
   bootstrap: [AppComponent]
 })

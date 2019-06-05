@@ -24,8 +24,8 @@
   </div>
   <app-word [word]="currentWord"></app-word>
   <div *ngFor="let row of [0, 1, 2]" class="row no-gutters grapheme-row justify-content-center">
-    <div *ngFor="let rep of graphemeRow(row)" class="col-1 box">
-      <app-board-grapheme class="in-box" [representation]="rep"></app-board-grapheme>
+    <div *ngFor="let grapheme of graphemeRow(row)" class="col-1 box">
+      <app-board-grapheme class="in-box" [representation]="grapheme.representation"></app-board-grapheme>
     </div>
   </div>
   <div class="text-center word-row">
