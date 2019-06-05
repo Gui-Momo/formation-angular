@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +13,14 @@ import { GraphemeComponent } from './grapheme/grapheme.component';
 import { WordGraphemeComponent } from './word-grapheme/word-grapheme.component';
 import { BoardGraphemeComponent } from './board-grapheme/board-grapheme.component';
 import { WordComponent } from './word/word.component';
+
+import { Grapheme, GraphemeType } from "./grapheme/grapheme.model";
+import { Word } from "./word/word.model";
+
 import { SoundService } from "./sound/sound.service";
-import { GraphemeService } from './grapheme/grapheme.service';
+import { GraphemeService, LanguageGraphemes } from './grapheme/grapheme.service';
+import { WordGraphemeService } from "./word-grapheme/word-grapheme.service";
+import { WordService } from "./word/word.service";
 
 @NgModule({
   declarations: [
@@ -26,15 +33,18 @@ import { GraphemeService } from './grapheme/grapheme.service';
     GraphemeComponent,
     WordGraphemeComponent,
     BoardGraphemeComponent,
-    WordComponent
+    WordComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     SoundService,
-    GraphemeService
+    GraphemeService,
+    WordGraphemeService,
+    WordService,
   ],
   bootstrap: [AppComponent]
 })

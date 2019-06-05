@@ -8,7 +8,7 @@
     <div class="col-4"></div>
     <div class="col-2">
       <div class="text-center">
-        <app-word-img [name]="currentWord"></app-word-img>
+        <app-word-img name="pamplemousse"></app-word-img>
       </div>
     </div>
     <div class="col-1"></div>
@@ -22,10 +22,10 @@
       <app-reveal-button></app-reveal-button>
     </div>
   </div>
-  <app-word [word]="currentWord"></app-word>
+  <app-word *ngIf="currentWord" [word]="currentWord"></app-word>
   <div *ngFor="let row of [0, 1, 2]" class="row no-gutters grapheme-row justify-content-center">
     <div *ngFor="let grapheme of graphemeRow(row)" class="col-1 box">
-      <app-board-grapheme class="in-box" [representation]="grapheme.representation"></app-board-grapheme>
+      <app-board-grapheme class="in-box" [grapheme]="grapheme.phonems.representation"></app-board-grapheme>
     </div>
   </div>
   <div class="text-center word-row">

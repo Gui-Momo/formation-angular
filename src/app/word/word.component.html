@@ -1,5 +1,5 @@
 <div class="row no-gutters row-grapheme word-row justify-content-center">
-  <div *ngFor="let rep of word.split('')" class="col-1 box">
-    <app-word-grapheme class="in-box" [representation]="rep"></app-word-grapheme>
+  <div *ngFor="let wordGrapheme of word.graphemes" class="col-1 box">
+    <app-word-grapheme class="in-box" [grapheme]="wordGrapheme"></app-word-grapheme>
   </div>
 </div>

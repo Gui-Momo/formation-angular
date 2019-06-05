@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WordGrapheme } from '../word-grapheme/word-grapheme.model';
+import { Word } from './word.model';
 
 @Component({
   selector: 'app-word',
@@ -7,11 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WordComponent implements OnInit {
 
-  @Input() word: string;
+  @Input() word: Word;
+  @Input() grapheme: WordGrapheme;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
