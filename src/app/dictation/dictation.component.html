@@ -8,7 +8,8 @@
     <div class="col-4"></div>
     <div class="col-2">
       <div class="text-center">
-        <app-word-img name="pamplemousse"></app-word-img>
+        <app-word-img *ngIf="currentWord" [name]="currentWord.fileName" [word]="currentWord">
+        </app-word-img>
       </div>
     </div>
     <div class="col-1"></div>
