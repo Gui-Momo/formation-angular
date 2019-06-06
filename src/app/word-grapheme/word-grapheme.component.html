@@ -1,1 +1,5 @@
-<div *ngIf="grapheme.isFound">{{grapheme.representation}}</div>
+<div appDroppable (dropped)="onDrop($event, grapheme)" (click)="playPhonemSound()">
+  <div *ngIf="grapheme.isFound">
+    {{grapheme.representation}}
+  </div>
+</div>

@@ -19,6 +19,8 @@ import { SoundService } from "./sound/sound.service";
 import { GraphemeService } from './grapheme/grapheme.service';
 import { WordGraphemeService } from "./word-grapheme/word-grapheme.service";
 import { WordService } from "./word/word.service";
+import { DraggableDirective } from './dnd/draggable.directive';
+import { DroppableDirective } from './dnd/droppable.directive';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { WordService } from "./word/word.service";
     GraphemeComponent,
     WordGraphemeComponent,
     BoardGraphemeComponent,
-    WordComponent
+    WordComponent,
+    DraggableDirective,
+    DroppableDirective
   ],
   imports: [
     BrowserModule,

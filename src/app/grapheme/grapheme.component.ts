@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Grapheme } from "./grapheme.model";
 import { SoundService } from '../sound/sound.service';
+import { WordGrapheme } from '../word-grapheme/word-grapheme.model';
 
 @Component({
   selector: 'app-grapheme',
@@ -12,12 +13,16 @@ export class GraphemeComponent implements OnInit {
 
   @Input() grapheme: Grapheme;
 
-  constructor(private soundService: SoundService) { }
+  constructor(private _soundService: SoundService) { }
 
   ngOnInit() {
   }
 
   playPhonemSound() {
     this.soundService.playSound(`phonems/${this.grapheme.phonems[0]}`);
+  }
+
+  get soundService() {
+    return this._soundService;
   }
 }

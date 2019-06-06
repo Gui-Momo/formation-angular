@@ -11,7 +11,7 @@ export class Grapheme {
     private graphemeType: GraphemeType,
     //A grapheme can represent several phonems
     //ie : the letter "e" in French
-    private phonems: string[],
+    private _phonems: string[],
     private _representation: string
   ) {
     switch (this.graphemeType) {
@@ -32,5 +32,9 @@ export class Grapheme {
 
   get representation() {
     return this._representation;
+  }
+
+  get phonems() {
+    return this._phonems;
   }
 }
