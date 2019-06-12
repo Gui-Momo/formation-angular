@@ -21,6 +21,7 @@ import { WordGraphemeService } from "./word-grapheme/word-grapheme.service";
 import { WordService } from "./word/word.service";
 import { DraggableDirective } from './dnd/draggable.directive';
 import { DroppableDirective } from './dnd/droppable.directive';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { DroppableDirective } from './dnd/droppable.directive';
     WordComponent,
     DraggableDirective,
     DroppableDirective,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

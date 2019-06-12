@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 import { Grapheme } from "../grapheme/grapheme.model";
 import {
@@ -31,7 +32,8 @@ export class DictationComponent implements OnInit {
   constructor(
     private graphemeService: GraphemeService,
     private wordService: WordService,
-    private soundService: SoundService
+    private soundService: SoundService,
+    private location: Location
   ) { }
 
   ngOnInit() {

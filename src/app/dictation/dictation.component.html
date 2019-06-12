@@ -5,7 +5,11 @@
         <app-rounded-img [name]="currentChild"></app-rounded-img>
       </div>
     </div>
-    <div class="col-4"></div>
+    <div class="col-1"></div>
+    <div class="col-1">
+      <app-icon-button name="arrow-thick-left" (click)="this.location.back()"></app-icon-button>
+    </div>
+    <div class="col-2"></div>
     <div class="col-2">
       <div class="text-center">
         <app-word-img *ngIf="currentWord" [name]="currentWord.fileName" [word]="currentWord">
