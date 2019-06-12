@@ -1,0 +1,9 @@
+<div class="btn-group" role="group">
+    <button *ngFor="let l of levels"
+      type="button"
+      class="btn btn-secondary"
+      [class.active]="level === l.value"
+      (click)="onChange(l.value)">
+      {{l.label}}
+    </button>
+  </div>

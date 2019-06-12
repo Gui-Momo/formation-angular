@@ -1,0 +1,17 @@
+<app-icon-button name="arrow-thick-left" (click)="goBack()"></app-icon-button>
+<div>
+  <h1>{{child.name}}</h1>
+  <form (ngSubmit)="onSubmit()" #childForm="ngForm">
+    <p>
+      <label for="name">Nom :</label>
+      <input [(ngModel)]="child.name" type="text" placeholder="Louane" id="name" name="name" required>
+    </p>
+    <button [disabled]="!childForm.form.valid" type="submit">{{submitMsg}}</button>
+    <p>
+      <label for="level">Niveau :
+        <app-level-selector [level]="child.level" (levelChange)="onLevelUpdate($event)" id="level" name="level">
+        </app-level-selector>
+      </label>
+    </p>
+  </form>
+</div>

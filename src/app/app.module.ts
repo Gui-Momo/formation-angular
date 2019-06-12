@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,15 +15,18 @@ import { GraphemeComponent } from './grapheme/grapheme.component';
 import { WordGraphemeComponent } from './word-grapheme/word-grapheme.component';
 import { BoardGraphemeComponent } from './board-grapheme/board-grapheme.component';
 import { WordComponent } from './word/word.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChildComponent } from './child/child.component';
 
 import { SoundService } from "./sound/sound.service";
 import { GraphemeService } from './grapheme/grapheme.service';
 import { WordGraphemeService } from "./word-grapheme/word-grapheme.service";
 import { WordService } from "./word/word.service";
+import { ChildService } from "./child/child.service"
+
 import { DraggableDirective } from './dnd/draggable.directive';
 import { DroppableDirective } from './dnd/droppable.directive';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { LevelSelectorComponent } from './level-selector/level-selector.component';
 
 @NgModule({
   declarations: [
@@ -39,17 +43,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DraggableDirective,
     DroppableDirective,
     DashboardComponent,
+    ChildComponent,
+    LevelSelectorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     SoundService,
     GraphemeService,
     WordService,
-    WordGraphemeService
+    WordGraphemeService,
+    ChildService
   ],
   bootstrap: [AppComponent]
 })
