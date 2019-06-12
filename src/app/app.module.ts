@@ -36,7 +36,7 @@ import { DroppableDirective } from './dnd/droppable.directive';
     BoardGraphemeComponent,
     WordComponent,
     DraggableDirective,
-    DroppableDirective
+    DroppableDirective,
   ],
   imports: [
     BrowserModule,

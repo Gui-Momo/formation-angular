@@ -8,9 +8,15 @@ export class SoundService {
   rootDir = "assets/sounds";
 
   playSound(filename) {
-    const a = new Audio(`${this.rootDir}/${filename}.mp3`);
-    return a.play();
+    return new Promise((resolve, reject) => {
+      const a = new Audio(`${this.rootDir}/${filename}.mp3`);
+      a.play();
+      a.addEventListener("ended", () => resolve());
+      a.addEventListener("error", err => reject(err));
+    });
   }
 
   constructor() { }
 }
+
+

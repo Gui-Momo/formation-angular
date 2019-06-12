@@ -1,4 +1,5 @@
-<div appDroppable (dropped)="onDrop($event, grapheme)" (click)="playPhonemSound()">
+<div class="stretch grapheme word-grapheme" appDroppable (dropped)="onDrop($event, grapheme)"
+  (click)="playPhonemSound()" [style.color]="grapheme.color">
   <div *ngIf="grapheme.isFound">
     {{grapheme.representation}}
   </div>

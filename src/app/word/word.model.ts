@@ -16,4 +16,8 @@ export class Word {
   get fileName() {
     return this._fileName;
   }
+
+  isFound() {
+    return this._graphemes.every(g => g.isFound);
+  }
 }

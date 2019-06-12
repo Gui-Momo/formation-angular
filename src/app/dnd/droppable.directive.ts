@@ -3,6 +3,10 @@ import { Directive, ElementRef, HostListener, Output, EventEmitter } from '@angu
 @Directive({
   selector: '[appDroppable]'
 })
+/**
+ * Adaptation of Mithun Patel's work
+ * https://github.com/mithun-daa/ng2_dnd
+ */
 export class DroppableDirective {
 
   @Output() dropped: EventEmitter<any> = new EventEmitter();
@@ -38,5 +42,4 @@ export class DroppableDirective {
     e.dataTransfer.dropEffect = "move";
     return false;
   }
-
 }
