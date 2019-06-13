@@ -34,6 +34,7 @@
     </div>
   </div>
   <div class="text-center word-row">
-    <app-icon-button name="arrow-thick-right" text=" Ou, Oi, Eau"></app-icon-button>
+    <app-icon-button name="arrow-thick-{{boardArrowOrientation}}" text=" {{boardButtonText}}"
+      (click)="toggleBoardGraphemes()"></app-icon-button>
   </div>
 </div>

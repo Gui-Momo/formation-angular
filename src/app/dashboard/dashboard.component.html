@@ -1,7 +1,7 @@
 <div class="container padding-top">
   <div class="row no-gutters">
     <div *ngFor="let child of children" class="col-1">
-      <app-rounded-img [name]="child.name" routerLink="/dictation/{{child.id}}"></app-rounded-img>
+      <app-rounded-img [name]="child.name" routerLink="/dictation"></app-rounded-img>
       <a routerLink="/child/{{child.id}}">{{child.name}}</a>
     </div>
     <div class="col-1 text-center">

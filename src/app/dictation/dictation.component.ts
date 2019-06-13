@@ -10,6 +10,11 @@ import { SoundService } from '../sound/sound.service';
 import { Word } from '../word/word.model';
 import { WordService } from '../word/word.service';
 
+enum GraphemeType {
+  simple,
+  complex
+}
+
 @Component({
   selector: 'app-dictation',
   templateUrl: './dictation.component.html',
@@ -22,6 +27,9 @@ export class DictationComponent implements OnInit {
   words: Word[];
   graphemes: LanguageGraphemes;
   boardGraphemes: Grapheme[];
+  boardGraphemesType: GraphemeType = GraphemeType.simple;
+  boardButtonText = " Ou, Oi, Eau";
+  boardArrowOrientation = "right";
 
   graphemeRow(num: number) {
     const rowLength = 11;
@@ -51,5 +59,22 @@ export class DictationComponent implements OnInit {
   setRandomCurrentWord() {
     const pos = Math.floor(Math.random() * this.words.length);
     this.currentWord = this.words[pos];
+  }
+
+  toggleBoardGraphemes() {
+    if (this.boardGraphemesType === GraphemeType.simple) {
+      this.boardGraphemes = this.graphemes.complexes;
+      this.boardButtonText = "a, â, e";
+      this.boardArrowOrientation = "left";
+      this.boardGraphemesType = GraphemeType.complex;
+    } else {
+      this.boardGraphemes = [
+        ...this.graphemes.vowels,
+        ...this.graphemes.consonants
+      ];
+      this.boardButtonText = "Ou, Oi, Eau";
+      this.boardArrowOrientation = "right";
+      this.boardGraphemesType = GraphemeType.simple;
+    }
   }
 }
