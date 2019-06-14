@@ -27,6 +27,7 @@ import { ChildService } from "./child/child.service"
 import { DraggableDirective } from './dnd/draggable.directive';
 import { DroppableDirective } from './dnd/droppable.directive';
 import { LevelSelectorComponent } from './level-selector/level-selector.component';
+import { AdminChildComponent } from './admin-child/admin-child.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { LevelSelectorComponent } from './level-selector/level-selector.componen
     DashboardComponent,
     ChildComponent,
     LevelSelectorComponent,
+    AdminChildComponent,
   ],
   imports: [
     BrowserModule,

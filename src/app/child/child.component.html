@@ -9,7 +9,7 @@
     <button [disabled]="!childForm.form.valid" type="submit">{{submitMsg}}</button>
     <p>
       <label for="level">Niveau :
-        <app-level-selector [level]="child.level" (levelChange)="onLevelUpdate($event)" id="level" name="level">
+        <app-level-selector [(level)]="child.level" (levelChange)="onLevelUpdate($event)" id="level" name="level">
         </app-level-selector>
       </label>
     </p>
