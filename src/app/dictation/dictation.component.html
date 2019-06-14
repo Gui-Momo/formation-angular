@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row no-gutters word-row">
     <div class="col-1">
-      <div class="text-center">
-        <app-rounded-img [name]="currentChild"></app-rounded-img>
+      <div class="text-center" *ngIf="currentChild">
+        <app-rounded-img [name]="currentChild.name"></app-rounded-img>
       </div>
     </div>
     <div class="col-1"></div>

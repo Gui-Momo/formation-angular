@@ -9,6 +9,9 @@ import {
 import { SoundService } from '../sound/sound.service';
 import { Word } from '../word/word.model';
 import { WordService } from '../word/word.service';
+import { ChildService } from '../child/child.service';
+import { ActivatedRoute } from '@angular/router';
+import { Child } from '../child/child.model';
 
 enum GraphemeType {
   simple,
@@ -23,7 +26,7 @@ enum GraphemeType {
 export class DictationComponent implements OnInit {
 
   currentWord: Word;
-  currentChild = "child";
+  currentChild: Child;
   words: Word[];
   graphemes: LanguageGraphemes;
   boardGraphemes: Grapheme[];
@@ -41,10 +44,20 @@ export class DictationComponent implements OnInit {
     private graphemeService: GraphemeService,
     private wordService: WordService,
     private soundService: SoundService,
-    private location: Location
+    private location: Location,
+    private childService: ChildService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get("id");
+
+    if (id !== null) {
+      this.childService
+        .getChild(+id)
+        .subscribe(child => (this.currentChild = child));
+    }
+
     this.graphemes = this.graphemeService.getGraphemes();
     this.boardGraphemes = [
       ...this.graphemes.vowels,
