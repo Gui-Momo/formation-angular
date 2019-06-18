@@ -14,10 +14,11 @@ type wordsDesc = {
 
 @Injectable()
 export class WordService {
+
   constructor(
     private wordGraphemeService: WordGraphemeService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   private createWordFromDescription(wordDesc) {
     const wordGr: WordGrapheme[] = [];
@@ -27,6 +28,7 @@ export class WordService {
     }
     return new Word(wordGr);
   }
+
   getWords(): Observable<Word[]> {
     return this.http.get<wordsDesc>("/assets/data/words-fr.json").pipe(
       map(data => {

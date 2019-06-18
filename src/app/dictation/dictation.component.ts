@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Location } from "@angular/common";
 
 import { Grapheme } from "../grapheme/grapheme.model";
@@ -25,7 +25,7 @@ enum GraphemeType {
 })
 export class DictationComponent implements OnInit {
 
-  currentWord: Word;
+  @Input() currentWord: Word;
   currentChild: Child;
   words: Word[];
   graphemes: LanguageGraphemes;

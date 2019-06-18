@@ -24,7 +24,7 @@
       <app-icon-button name="random" (click)="setRandomCurrentWord()"></app-icon-button>
     </div>
     <div class="col-2">
-      <app-reveal-button></app-reveal-button>
+      <app-reveal-button [word]="currentWord"></app-reveal-button>
     </div>
   </div>
   <app-word *ngIf="currentWord" [word]="currentWord"></app-word>
