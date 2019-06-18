@@ -28,6 +28,10 @@ import { DraggableDirective } from './dnd/draggable.directive';
 import { DroppableDirective } from './dnd/droppable.directive';
 import { LevelSelectorComponent } from './level-selector/level-selector.component';
 import { AdminChildComponent } from './admin-child/admin-child.component';
+import { AdminComponent } from './admin/admin.component';
+import { ConfigComponent } from './config/config.component';
+import { AdminConfigComponent } from './admin-config/admin-config.component';
+import { ConfigService } from './config/config.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,9 @@ import { AdminChildComponent } from './admin-child/admin-child.component';
     ChildComponent,
     LevelSelectorComponent,
     AdminChildComponent,
+    AdminComponent,
+    ConfigComponent,
+    AdminConfigComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,8 @@ import { AdminChildComponent } from './admin-child/admin-child.component';
     GraphemeService,
     WordService,
     WordGraphemeService,
-    ChildService
+    ChildService,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })

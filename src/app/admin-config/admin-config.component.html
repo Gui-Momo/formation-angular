@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let config of configs">
+    {{levelEnum[config.id]}}
+    <app-icon-button title="Éditer" name="pencil" routerLink="/config/{{config.id}}"></app-icon-button>
+  </li>
+</ul>

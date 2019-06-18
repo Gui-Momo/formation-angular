@@ -1,0 +1,83 @@
+<app-icon-button name="arrow-thick-left" (click)="goBack()"></app-icon-button>
+<div *ngIf="config">
+  <h1>Configuration du niveau</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <div>
+          <label for="alphabetic-order">Ordre alphabétique
+            <input [(ngModel)]="config.isAlphabeticOrder" type="checkbox" id="alphabetic-order" name="alphabetic-order">
+          </label>
+        </div>
+        <div>
+          <label for="cursive-font">
+            Écriture cursive
+            <!-- cursive font can't be in upper case -->
+            <input [(ngModel)]="config.isCursiveFont" (change)="config.isUpperCase=false" type="checkbox"
+              id="cursive-font" name="cursive-font">
+          </label>
+        </div>
+        <div *ngIf="!config.isCursiveFont">
+          <label for="upper-case">
+            En majuscule
+            <input [(ngModel)]="config.isUpperCase" type="checkbox" id="upper-case" name="upper-case">
+          </label>
+        </div>
+        <div>
+          <label for="muted-graphemes-displayed">
+            Afficher les lettres muettes
+            <input [(ngModel)]="config.areMutedGraphemesDisplayed" type="checkbox" id="muted-graphemes-displayed"
+              name="muted-graphemes-displayed">
+          </label>
+        </div>
+        <div>
+          <label for="complex-graphemes-displayed">
+            Afficher les graphèmes complexes
+            <input [(ngModel)]="config.areComplexGraphemesDisplayed" type="checkbox" id="complex-graphemes-displayed"
+              name="complex-graphemes-displayed">
+          </label>
+        </div>
+        <div>
+          <label for="complex-graphemes-grouped">
+            Grouper les graphèmes complexes
+            <input [(ngModel)]="config.areComplexGraphemesGrouped" type="checkbox" id="complex-graphemes-grouped"
+              name="complex-graphemes-grouped">
+          </label>
+        </div>
+        <div>
+          <label for="use-accent">
+            Différencier lettres et lettres accentuées
+            <input [(ngModel)]="config.useAccent" type="checkbox" id="use-accent" name="use-accent">
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <fieldset>
+          <legend>Enlever les mots</legend>
+          <div>
+            <label for="filter-with-muted-graphemes">
+              Avec lettres muettes
+              <input [(ngModel)]="config.filterWordsWithMutedGraphemes" type="checkbox" id="filter-with-muted-graphemes"
+                name="filter-with-muted-graphemes">
+            </label>
+          </div>
+          <div>
+            <label for="filter-with-complex-graphemes">
+              Avec graphemes complexes
+              <input [(ngModel)]="config.filterWordsWithComplexGraphemes" type="checkbox"
+                id="filter-with-complex-graphemes" name="filter-with-complex-graphemes">
+            </label>
+          </div>
+          <div>
+            <label for="filter-with-accents">
+              Avec accents
+              <input [(ngModel)]="config.filterWordsWithAccents" type="checkbox" id="filter-with-accents"
+                name="filter-with-accents">
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <button type="submit">Enregistrer</button>
+  </form>
+</div>

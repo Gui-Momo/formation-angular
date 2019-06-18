@@ -33,7 +33,8 @@
       <app-board-grapheme class="in-box" [grapheme]="grapheme"></app-board-grapheme>
     </div>
   </div>
-  <div class="text-center word-row">
+  <div *ngIf="currentConfig && currentConfig.areComplexGraphemesGrouped" class="text-center row-margin-top"
+    class="text-center word-row">
     <app-icon-button name="arrow-thick-{{boardArrowOrientation}}" text=" {{boardButtonText}}"
       (click)="toggleBoardGraphemes()"></app-icon-button>
   </div>

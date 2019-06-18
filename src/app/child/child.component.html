@@ -6,12 +6,12 @@
       <label for="name">Nom :</label>
       <input [(ngModel)]="child.name" type="text" placeholder="Louane" id="name" name="name" required>
     </p>
-    <button [disabled]="!childForm.form.valid" type="submit">{{submitMsg}}</button>
     <p>
       <label for="level">Niveau :
         <app-level-selector [(level)]="child.level" (levelChange)="onLevelUpdate($event)" id="level" name="level">
         </app-level-selector>
       </label>
     </p>
+    <button [disabled]="!childForm.form.valid" type="submit">{{submitMsg}}</button>
   </form>
 </div>
