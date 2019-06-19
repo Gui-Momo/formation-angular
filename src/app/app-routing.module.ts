@@ -11,7 +11,7 @@ import { ConfigComponent } from './config/config.component';
 const routes: Routes = [
   { path: "", component: DashboardComponent },
   { path: "dictation", component: DictationComponent },
-  { path: "dictation/:level", component: DictationComponent },
+  { path: "dictation/:id", component: DictationComponent },
   { path: "child", component: ChildComponent },
   { path: "child/:id", component: ChildComponent },
   { path: "admin", component: AdminComponent },

@@ -56,9 +56,11 @@ export class DictationComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
 
+
     if (id !== null) {
       this.childService.getChild(+id).subscribe(child => {
         this.currentChild = child;
+        console.log(this.currentChild.name);
         // TODO : get child's config inside childService
         this.configService
           .getConfig(child.configId)
