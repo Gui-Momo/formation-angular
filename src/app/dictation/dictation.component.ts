@@ -60,7 +60,6 @@ export class DictationComponent implements OnInit {
     if (id !== null) {
       this.childService.getChild(+id).subscribe(child => {
         this.currentChild = child;
-        console.log(this.currentChild.name);
         // TODO : get child's config inside childService
         this.configService
           .getConfig(child.configId)
