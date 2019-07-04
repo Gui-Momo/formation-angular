@@ -4,6 +4,8 @@ const PORT = 3000;
 const express = require("express");
 const app = express();
 
+app.use(express.static(__dirname + '/dist/formation-angular'));
+
 const LEVEL_GRAND_ID = 2;
 
 let children = [
