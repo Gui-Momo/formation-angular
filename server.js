@@ -144,3 +144,4 @@ function deleteConfig(configId) {
 
 console.log(`Listen on port ${PORT}`);
 app.listen(PORT);
+

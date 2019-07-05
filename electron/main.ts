@@ -15,7 +15,9 @@ app.on('activate', () => {
 })
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 })
+  console.log('reload in 4s');
+
+  win = new BrowserWindow({ width: 1000, height: 800 })
 
   win.loadURL(
     url.format({
@@ -24,6 +26,11 @@ function createWindow() {
       slashes: true,
     })
   )
+
+  setTimeout(function () {
+    console.log('reloading');
+    win.reload();
+  }, 4000);
 
   win.on('closed', () => {
     win = null

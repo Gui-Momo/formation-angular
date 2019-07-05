@@ -12,12 +12,17 @@ electron_1.app.on('activate', () => {
     }
 });
 function createWindow() {
-    win = new electron_1.BrowserWindow({ width: 800, height: 600 });
+    console.log('creating window, waiting for server');
+    win = new electron_1.BrowserWindow({ width: 1000, height: 800 });
     win.loadURL(url.format({
         pathname: path.join(__dirname, `/../../dist/formation-angular/index.html`),
         protocol: 'file:',
         slashes: true,
     }));
+    setTimeout(function () {
+        console.log('server ready');
+        win.reload();
+    }, 4000);
     win.on('closed', () => {
         win = null;
     });
