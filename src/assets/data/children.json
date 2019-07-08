@@ -18,15 +18,5 @@
     "successCount": 0,
     "consecutiveSuccessCount": 0,
     "configId": 1
-  },
-  {
-    "id": 2,
-    "name": "Jean-Thomas",
-    "level": 2,
-    "evolutionAuto": true,
-    "attemptCount": 0,
-    "successCount": 0,
-    "consecutiveSuccessCount": 0,
-    "configId": 2
   }
 ]

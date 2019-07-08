@@ -56,16 +56,11 @@ app.post("/api/children", (req, res) => {
   }, 0);
 
   newChild.id = lastId + 1;
-  children.push(newChild);
-  const newChildrenArray = JSON.stringify(children);
 
-  fs.writeFile('./src/assets/data/children.json', newChildrenArray, err => {
-    if (err) {
-      console.log('Error writing file ', err);
-    } else {
-      console.log('Successfully wrote file');
-    }
-  });
+  children.push(newChild);
+
+  const newChildrenArray = JSON.stringify(children);
+  updateJson(newChildrenArray);
 
   // res.send(JSON.stringify(newChild));
 });
@@ -76,8 +71,22 @@ app.put("/api/children/:id", (req, res) => {
   const updatedChild = req.body;
   updatedChild.id = +updatedChild.id;
   children[index] = updatedChild;
-  res.send(JSON.stringify(updatedChild));
+
+  const newChildrenArray = JSON.stringify(children);
+  updateJson(newChildrenArray);
+
+  // res.send(JSON.stringify(updatedChild));
 });
+
+function updateJson(data) {
+  fs.writeFile('./src/assets/data/children.json', data, err => {
+    if (err) {
+      console.log('Error writing file ', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+}
 
 app.delete("/api/children/:id", (req, res) => {
   const child = children.find(c => c.id === +req.params.id);
