@@ -2,7 +2,7 @@
 <div class="container padding-top">
   <div class="row no-gutters">
     <div *ngFor="let child of children" class="col-1">
-      <app-rounded-img [name]="child.name" routerLink="/dictation/{{child.id}}"></app-rounded-img>
+      <app-rounded-img [name]="child.imageUrl" routerLink="/dictation/{{child.id}}"></app-rounded-img>
       <div>
         <a class="cursive" routerLink="/child/{{child.id}}">{{child.name}}</a>
       </div>
@@ -12,6 +12,9 @@
     </div>
     <div class="col-1 text-center">
       <app-icon-button name="wrench" routerLink="/admin"></app-icon-button>
+    </div>
+    <div class="col-1 text-center">
+      <app-icon-button name="list" routerLink="/wordlist"></app-icon-button>
     </div>
   </div>
 </div>

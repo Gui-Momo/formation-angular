@@ -32,6 +32,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ConfigComponent } from './config/config.component';
 import { AdminConfigComponent } from './admin-config/admin-config.component';
 import { ConfigService } from './config/config.service';
+import { WordlistComponent } from './wordlist/wordlist.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ConfigService } from './config/config.service';
     AdminComponent,
     ConfigComponent,
     AdminConfigComponent,
+    WordlistComponent,
   ],
   imports: [
     BrowserModule,

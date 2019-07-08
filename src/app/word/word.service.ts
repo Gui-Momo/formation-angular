@@ -8,6 +8,7 @@ import { Word } from "./word.model";
 import { WordGrapheme } from "../word-grapheme/word-grapheme.model";
 import { WordGraphemeService } from "../word-grapheme/word-grapheme.service";
 
+
 type wordsDesc = {
   words: string[][];
 };
@@ -37,5 +38,18 @@ export class WordService {
         });
       })
     );
+  }
+
+  checkImage(word) {
+    let file = word._imageFile;
+    console.log(file);
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', file, false);
+    xhr.send();
+    if (xhr.status == 404) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

@@ -14,4 +14,5 @@ export class Child {
   successCount: number = 0;
   consecutiveSuccessCount: number = 0;
   configId: number = ChildLevel.petit;
+  imageUrl: string = "";
 }

@@ -1,0 +1,9 @@
+<h2>Liste des mots</h2>
+<div class="col-1">
+  <app-icon-button name="arrow-thick-left" (click)="this.location.back()"></app-icon-button>
+</div>
+<ul class="words">
+  <li *ngFor="let word of words">
+    <span>{{word._fileName}}</span>
+  </li>
+</ul>
