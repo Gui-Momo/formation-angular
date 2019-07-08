@@ -17,7 +17,7 @@ fs.readFile('./src/assets/data/children.json', (err, jsonString) => {
   }
   try {
     children = JSON.parse(jsonString);
-    console.log(children);
+    console.log('children fetched');
   } catch (err) {
     console.log('Error parsing Json file ', err);
   }
@@ -57,8 +57,17 @@ app.post("/api/children", (req, res) => {
 
   newChild.id = lastId + 1;
   children.push(newChild);
+  const newChildrenArray = JSON.stringify(children);
 
-  res.send(JSON.stringify(newChild));
+  fs.writeFile('./src/assets/data/children.json', newChildrenArray, err => {
+    if (err) {
+      console.log('Error writing file ', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+
+  // res.send(JSON.stringify(newChild));
 });
 
 app.put("/api/children/:id", (req, res) => {
