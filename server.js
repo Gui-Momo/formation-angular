@@ -23,21 +23,6 @@ fs.readFile('./src/assets/data/children.json', (err, jsonString) => {
   }
 });
 
-// let children = require('./src/assets/data/children.json');
-
-// let children = [
-//   {
-//     id: 0,
-//     name: "Lucie",
-//     level: LEVEL_GRAND_ID,
-//     evolutionAuto: true,
-//     attemptCount: 0,
-//     successCount: 0,
-//     consecutiveSuccessCount: 0,
-//     configId: LEVEL_GRAND_ID
-//   }
-// ];
-
 app.use(express.json());
 
 app.get("/api/children", (req, res) => {
@@ -61,8 +46,6 @@ app.post("/api/children", (req, res) => {
 
   const newChildrenArray = JSON.stringify(children);
   updateJson(newChildrenArray);
-
-  // res.send(JSON.stringify(newChild));
 });
 
 app.put("/api/children/:id", (req, res) => {
@@ -74,8 +57,6 @@ app.put("/api/children/:id", (req, res) => {
 
   const newChildrenArray = JSON.stringify(children);
   updateJson(newChildrenArray);
-
-  // res.send(JSON.stringify(updatedChild));
 });
 
 function updateJson(data) {
@@ -97,6 +78,8 @@ app.delete("/api/children/:id", (req, res) => {
     deleteConfig(child.configId);
   }
   res.send("{}");
+  const newChildrenArray = JSON.stringify(children);
+  updateJson(newChildrenArray);
 });
 
 let configs = [
