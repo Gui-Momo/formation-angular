@@ -12,7 +12,7 @@ electron_1.app.on('activate', () => {
     }
 });
 function createWindow() {
-    console.log('creating window, waiting for server');
+    console.log('reload in 4s');
     win = new electron_1.BrowserWindow({ width: 1000, height: 800 });
     win.loadURL(url.format({
         pathname: path.join(__dirname, `/../../dist/formation-angular/index.html`),
@@ -20,7 +20,7 @@ function createWindow() {
         slashes: true,
     }));
     setTimeout(function () {
-        console.log('server ready');
+        console.log('reloading');
         win.reload();
     }, 4000);
     win.on('closed', () => {

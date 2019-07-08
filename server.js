@@ -3,23 +3,40 @@
 const PORT = 3000;
 const express = require("express");
 const app = express();
+const fs = require('fs');
 
 app.use(express.static(__dirname + '/dist/formation-angular'));
 
 const LEVEL_GRAND_ID = 2;
+let children;
 
-let children = [
-  {
-    id: 0,
-    name: "Lucie",
-    level: LEVEL_GRAND_ID,
-    evolutionAuto: true,
-    attemptCount: 0,
-    successCount: 0,
-    consecutiveSuccessCount: 0,
-    configId: LEVEL_GRAND_ID
+fs.readFile('./src/assets/data/children.json', (err, jsonString) => {
+  if (err) {
+    console.log("File read failed ", err)
+    return
   }
-];
+  try {
+    children = JSON.parse(jsonString);
+    console.log(children);
+  } catch (err) {
+    console.log('Error parsing Json file ', err);
+  }
+});
+
+// let children = require('./src/assets/data/children.json');
+
+// let children = [
+//   {
+//     id: 0,
+//     name: "Lucie",
+//     level: LEVEL_GRAND_ID,
+//     evolutionAuto: true,
+//     attemptCount: 0,
+//     successCount: 0,
+//     consecutiveSuccessCount: 0,
+//     configId: LEVEL_GRAND_ID
+//   }
+// ];
 
 app.use(express.json());
 

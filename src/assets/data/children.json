@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "child",
+    "level": 2,
+    "evolutionAuto": true,
+    "attemptCount": 0,
+    "successCount": 0,
+    "consecutiveSuccessCount": 0,
+    "configId": 2
+  },
+  {
+    "id": 1,
+    "name": "Bob",
+    "level": 1,
+    "evolutionAuto": true,
+    "attemptCount": 0,
+    "successCount": 0,
+    "consecutiveSuccessCount": 0,
+    "configId": 1
+  }
+]
