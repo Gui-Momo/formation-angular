@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 export class Word {
   _fileName: string;
   _imageFile: string;
-  _hasImage: boolean;
+  _hasImage: boolean = false;
   constructor(private _graphemes: WordGrapheme[]) {
     this._fileName = this._graphemes.reduce(
       (fileName, g) => `${fileName}${g.representation}`,
@@ -25,6 +25,10 @@ export class Word {
 
   get hasImage() {
     return this._hasImage;
+  }
+
+  setHasImage(value) {
+    this._hasImage = value;
   }
 
   isFound() {

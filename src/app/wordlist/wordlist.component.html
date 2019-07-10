@@ -4,6 +4,17 @@
 </div>
 <ul class="words">
   <li *ngFor="let word of words">
-    <span>{{word._fileName}}</span>
+    <div class="row">
+      <p class="word">{{word._fileName}}</p>
+      <div class="img-container" *ngIf="word._hasImage">
+        <app-word-img [name]="word._fileName"></app-word-img>
+      </div>
+      <div *ngIf="!word._hasImage">
+        <form>
+          <input id="{{word._fileName}}" class="input" type="file" (change)="checkFiles()" accept="image/*">
+          <input type="button" value="OK" (click)="uploadImg(word)">
+        </form>
+      </div>
+    </div>
   </li>
 </ul>

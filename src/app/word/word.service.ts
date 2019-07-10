@@ -42,7 +42,6 @@ export class WordService {
 
   checkImage(word) {
     let file = word._imageFile;
-    console.log(file);
     var xhr = new XMLHttpRequest();
     xhr.open('HEAD', file, false);
     xhr.send();

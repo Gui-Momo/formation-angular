@@ -1,0 +1,18 @@
+ul.words {
+  padding-left: 50px;
+}
+
+.word {
+  min-width: 200px;
+  font-size: 1.5em;
+  padding-left: 15px;
+}
+
+.row {
+  display: flex;
+}
+
+.img-container {
+  width: 50px;
+  height: auto;
+}
