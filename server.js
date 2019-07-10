@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/dist/formation-angular'));
 const LEVEL_GRAND_ID = 2;
 let children;
 
-fs.readFile('./src/assets/data/children.json', (err, jsonString) => {
+fs.readFile(__dirname + '/src/assets/data/children.json', (err, jsonString) => {
   if (err) {
     console.log("File read failed ", err)
     return
@@ -60,7 +60,7 @@ app.put("/api/children/:id", (req, res) => {
 });
 
 function updateJson(data) {
-  fs.writeFile('./src/assets/data/children.json', data, err => {
+  fs.writeFile(__dirname + '/src/assets/data/children.json', data, err => {
     if (err) {
       console.log('Error writing file ', err);
     } else {

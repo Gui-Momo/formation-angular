@@ -52,4 +52,5 @@ export class WordService {
       return true;
     }
   }
+
 }

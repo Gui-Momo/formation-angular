@@ -19,10 +19,11 @@ function createWindow() {
         protocol: 'file:',
         slashes: true,
     }));
+    win.webContents.openDevTools();
     setTimeout(function () {
         console.log('reloading');
         win.reload();
-    }, 4000);
+    }, 8000);
     win.on('closed', () => {
         win = null;
     });

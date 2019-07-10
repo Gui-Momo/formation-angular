@@ -30,6 +30,5 @@ export class WordlistComponent implements OnInit {
         console.log(word);
       });
     });
-
   }
 }
