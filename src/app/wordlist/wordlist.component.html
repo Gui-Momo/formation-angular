@@ -7,7 +7,7 @@
     <div class="row">
       <p class="word">{{word._fileName}}</p>
       <div class="img-container" *ngIf="word._hasImage">
-        <app-word-img [name]="word._fileName"></app-word-img>
+        <app-word-img [name]="word.completeFileName"></app-word-img>
       </div>
       <div *ngIf="!word._hasImage">
         <app-image-uploader [word]="word"></app-image-uploader>

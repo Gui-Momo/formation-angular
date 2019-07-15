@@ -71,7 +71,6 @@ function saveImg(image) {
       }
     });
   });
-
 }
 
 app.put("/api/children/:id", (req, res) => {

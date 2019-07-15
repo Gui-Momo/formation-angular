@@ -43,12 +43,27 @@ export class WordService {
   checkImage(word) {
     let file = word._imageFile;
     var xhr = new XMLHttpRequest();
-    xhr.open('HEAD', file, false);
+    xhr.open('HEAD', file + '.png', false);
     xhr.send();
-    if (xhr.status == 404) {
-      return false;
-    } else {
+    if (xhr.status !== 404) {
+      word.setCompleteFileName(file + '.png');
       return true;
+    } else {
+      xhr.open('HEAD', file + '.jpg', false);
+      xhr.send();
+      if (xhr.status !== 404) {
+        word.setCompleteFileName(file + '.jpg');
+        return true;
+      } else {
+        xhr.open('HEAD', file + '.gif', false);
+        xhr.send();
+        if (xhr.status == 404) {
+          return false;
+        } else {
+          word.setCompleteFileName(file + '.gif');
+          return true;
+        }
+      }
     }
   }
 
