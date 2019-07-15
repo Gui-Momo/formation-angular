@@ -10,10 +10,7 @@
         <app-word-img [name]="word._fileName"></app-word-img>
       </div>
       <div *ngIf="!word._hasImage">
-        <form>
-          <input id="{{word._fileName}}" class="input" type="file" (change)="checkFiles()" accept="image/*">
-          <input type="button" value="OK" (click)="uploadImg(word)">
-        </form>
+        <app-image-uploader [word]="word"></app-image-uploader>
       </div>
     </div>
   </li>

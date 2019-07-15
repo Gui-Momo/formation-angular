@@ -33,6 +33,8 @@ import { ConfigComponent } from './config/config.component';
 import { AdminConfigComponent } from './admin-config/admin-config.component';
 import { ConfigService } from './config/config.service';
 import { WordlistComponent } from './wordlist/wordlist.component';
+import { ImageService } from './image/image.service';
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { WordlistComponent } from './wordlist/wordlist.component';
     ConfigComponent,
     AdminConfigComponent,
     WordlistComponent,
+    ImageUploaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { WordlistComponent } from './wordlist/wordlist.component';
     WordService,
     WordGraphemeService,
     ChildService,
-    ConfigService
+    ConfigService,
+    ImageService
   ],
   bootstrap: [AppComponent]
 })

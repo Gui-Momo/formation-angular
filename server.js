@@ -4,6 +4,13 @@ const PORT = 3000;
 const express = require("express");
 const app = express();
 const fs = require('fs');
+const formidableMiddleware = require('express-formidable');
+
+app.use(formidableMiddleware({
+  type: 'multipart'
+}));
+// const multer = require('multer');
+// const upload = multer({ dest: 'src/assets/img/' });
 
 app.use(express.static(__dirname + '/dist/formation-angular'));
 
@@ -47,6 +54,25 @@ app.post("/api/children", (req, res) => {
   const newChildrenArray = JSON.stringify(children);
   updateJson(newChildrenArray);
 });
+
+
+app.post("/api/img", (req, res) => {
+  saveImg(req.files.image);
+});
+
+function saveImg(image) {
+  let filename = __dirname + '/src/assets/img/' + image.name;
+  let imageFile = fs.readFile(image.path, function (err, data) {
+    fs.writeFile(filename, data, 'binary', err => {
+      if (err) {
+        console.log('Error writing file ', err);
+      } else {
+        console.log('Successfully wrote file');
+      }
+    });
+  });
+
+}
 
 app.put("/api/children/:id", (req, res) => {
   const index = children.findIndex(c => c.id === +req.params.id);

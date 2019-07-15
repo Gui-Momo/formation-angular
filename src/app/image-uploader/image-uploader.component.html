@@ -1,0 +1,4 @@
+<form (ngSubmit)=onSubmit(word) #imgForm="ngForm" enctype="multipart/form-data">
+  <input id="{{word._fileName}}" class="input" type="file" (change)="checkFiles()" accept="image/*" name="image">
+  <input [disabled]="!imgForm.form.valid" type="submit" value="OK">
+</form>
