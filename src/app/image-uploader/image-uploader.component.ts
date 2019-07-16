@@ -34,7 +34,7 @@ export class ImageUploaderComponent implements OnInit {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
         this.selectedFile = new ImageSnippet(event.target.result, file);
-        this.imageService.uploadImage(this.selectedFile.file, entity).subscribe(
+        this.imageService.uploadImage(this.selectedFile.file, entity as Word).subscribe(
           (res) => {
             console.log('OK');
           },
@@ -45,9 +45,23 @@ export class ImageUploaderComponent implements OnInit {
       });
       reader.readAsDataURL(file);
     } else if (entity instanceof Child) {
-      console.log(entity);
+      let input = document.getElementsByClassName('input') as unknown as HTMLInputElement[];
+      let file: File = input[0].files[0];
+      console.log(file);
+      const reader = new FileReader();
+      reader.addEventListener('load', (event: any) => {
+        this.selectedFile = new ImageSnippet(event.target.result, file);
+        this.imageService.uploadImage(this.selectedFile.file, entity as Child).subscribe(
+          (res) => {
+            console.log('OK');
+          },
+          (err) => {
+            console.log('error uploadImg');
+          }
+        )
+      });
+      reader.readAsDataURL(file);
     }
-
   }
 
   checkFiles() {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
+import { Word } from '../word/word.model';
+import { Child } from '../child/child.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,9 +45,19 @@ export class ImageService {
     }
   }
 
-  uploadImage(file: File, word): Observable<any> {
-    const formData = new FormData();
-    formData.append('image', file, (word._fileName + this.extension));
-    return this.http.post('api/img/', formData);
+  uploadImage(file: File, entity): Observable<any> {
+    if (entity instanceof Word) {
+      const formData = new FormData();
+      formData.append('image', file, (entity._fileName + this.extension));
+      return this.http.post('api/img/', formData);
+    } else if (entity instanceof Child) {
+      entity.setImageUrl('assets/img/' + file.name);
+      const formData = new FormData();
+      formData.append('image', file);
+      console.log(entity);
+      console.log(file);
+      return this.http.post('api/img/', formData);
+    }
+
   }
 }

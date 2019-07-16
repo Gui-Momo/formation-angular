@@ -12,6 +12,9 @@
         </app-level-selector>
       </label>
     </p>
+    <div *ngIf="!child._imageUrl">
+      <app-image-uploader [entity]="child"></app-image-uploader>
+    </div>
     <button [disabled]="!childForm.form.valid" type="submit">{{submitMsg}}</button>
   </form>
 </div>

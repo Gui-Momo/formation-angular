@@ -6,12 +6,6 @@ const app = express();
 const fs = require('fs');
 const formidableMiddleware = require('express-formidable');
 
-app.use(formidableMiddleware({
-  type: 'multipart'
-}));
-// const multer = require('multer');
-// const upload = multer({ dest: 'src/assets/img/' });
-
 app.use(express.static(__dirname + '/dist/formation-angular'));
 
 const LEVEL_GRAND_ID = 2;
@@ -55,24 +49,6 @@ app.post("/api/children", (req, res) => {
   updateJson(newChildrenArray);
 });
 
-
-app.post("/api/img", (req, res) => {
-  saveImg(req.files.image);
-});
-
-function saveImg(image) {
-  let filename = __dirname + '/src/assets/img/' + image.name;
-  let imageFile = fs.readFile(image.path, function (err, data) {
-    fs.writeFile(filename, data, 'binary', err => {
-      if (err) {
-        console.log('Error writing file ', err);
-      } else {
-        console.log('Successfully wrote file');
-      }
-    });
-  });
-}
-
 app.put("/api/children/:id", (req, res) => {
   const index = children.findIndex(c => c.id === +req.params.id);
   if (index === -1) return res.sendStatus(400);
@@ -83,16 +59,6 @@ app.put("/api/children/:id", (req, res) => {
   const newChildrenArray = JSON.stringify(children);
   updateJson(newChildrenArray);
 });
-
-function updateJson(data) {
-  fs.writeFile(__dirname + '/src/assets/data/children.json', data, err => {
-    if (err) {
-      console.log('Error writing file ', err);
-    } else {
-      console.log('Successfully wrote file');
-    }
-  });
-}
 
 app.delete("/api/children/:id", (req, res) => {
   const child = children.find(c => c.id === +req.params.id);
@@ -106,6 +72,16 @@ app.delete("/api/children/:id", (req, res) => {
   const newChildrenArray = JSON.stringify(children);
   updateJson(newChildrenArray);
 });
+
+function updateJson(data) {
+  fs.writeFile(__dirname + '/src/assets/data/children.json', data, err => {
+    if (err) {
+      console.log('Error writing file ', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+}
 
 let configs = [
   {
@@ -183,6 +159,35 @@ app.put("/api/configs/:id", (req, res) => {
 // is only use en child deletion
 function deleteConfig(configId) {
   configs = configs.filter(c => c.id !== configId);
+}
+
+app.use(formidableMiddleware({
+  type: 'multipart'
+}));
+
+app.post("/api/img", (req, res) => {
+  saveImg(req.files.image);
+});
+
+function saveImg(image) {
+  let filename = __dirname + '/src/assets/img/' + image.name;
+  let buildFilename = __dirname + '/dist/formation-angular/assets/img/' + image.name;
+  let imageFile = fs.readFile(image.path, function (err, data) {
+    fs.writeFile(filename, data, 'binary', err => {
+      if (err) {
+        console.log('Error writing file ', err);
+      } else {
+        console.log('Successfully wrote file');
+      }
+    });
+    fs.writeFile(buildFilename, data, 'binary', err => {
+      if (err) {
+        console.log('Error writing file ', err);
+      } else {
+        console.log('Successfully wrote file');
+      }
+    });
+  });
 }
 
 console.log(`Listen on port ${PORT}`);
