@@ -81,6 +81,7 @@ export class DictationComponent implements OnInit {
   setRandomCurrentWord() {
     const pos = Math.floor(Math.random() * this.words.length);
     this.currentWord = this.words[pos];
+    this.wordService.checkImage(this.currentWord);
   }
 
   toggleBoardGraphemes() {

@@ -2,7 +2,7 @@
   <div class="row no-gutters word-row">
     <div class="col-1">
       <div class="text-center" *ngIf="currentChild">
-        <app-rounded-img [name]="currentChild.imageUrl"></app-rounded-img>
+        <app-rounded-img [name]="currentChild._imageUrl"></app-rounded-img>
       </div>
     </div>
     <div class="col-1"></div>
@@ -12,7 +12,7 @@
     <div class="col-2"></div>
     <div class="col-2">
       <div class="text-center">
-        <app-word-img *ngIf="currentWord" [name]="currentWord.fileName" [word]="currentWord">
+        <app-word-img *ngIf="currentWord" [name]="currentWord.completeFileName" [word]="currentWord">
         </app-word-img>
       </div>
     </div>

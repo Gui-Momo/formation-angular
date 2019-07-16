@@ -14,5 +14,13 @@ export class Child {
   successCount: number = 0;
   consecutiveSuccessCount: number = 0;
   configId: number = ChildLevel.petit;
-  imageUrl: string = "";
+  _imageUrl: string = "";
+
+  get imageUrl() {
+    return this.imageUrl;
+  }
+
+  setImageUrl(imageUrl) {
+    this._imageUrl = imageUrl;
+  }
 }

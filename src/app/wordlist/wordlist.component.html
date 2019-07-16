@@ -10,7 +10,7 @@
         <app-word-img [name]="word.completeFileName"></app-word-img>
       </div>
       <div *ngIf="!word._hasImage">
-        <app-image-uploader [word]="word"></app-image-uploader>
+        <app-image-uploader [entity]="word"></app-image-uploader>
       </div>
     </div>
   </li>
