@@ -14,7 +14,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Child } from '../child/child.model';
 import { Config } from '../config/config.model';
 import { ConfigService } from '../config/config.service';
-import { WordGrapheme } from 'formation-angular-win32-x64/resources/app/src/app/word-grapheme/word-grapheme.model';
 
 enum GraphemeType {
   simple,
