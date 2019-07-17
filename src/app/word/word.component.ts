@@ -3,6 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Word } from './word.model';
 import { WordGrapheme } from "../word-grapheme/word-grapheme.model";
 import { SoundService } from "../sound/sound.service";
+import { Config } from '../config/config.model';
 
 @Component({
   selector: 'app-word',
@@ -12,6 +13,7 @@ import { SoundService } from "../sound/sound.service";
 export class WordComponent implements OnInit {
 
   @Input() word: Word;
+  @Input() config: Config;
   @Output() found: EventEmitter<Word> = new EventEmitter();
 
   constructor(private soundService: SoundService) { }

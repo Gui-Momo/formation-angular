@@ -8,7 +8,7 @@ export class Grapheme {
   protected color: string;
 
   constructor(
-    private graphemeType: GraphemeType,
+    public graphemeType: GraphemeType,
     //A grapheme can represent several phonems
     //ie : the letter "e" in French
     private _phonems: string[],

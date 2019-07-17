@@ -1,1 +1,24 @@
-[{"id":0,"name":"Zoé","level":2,"evolutionAuto":true,"attemptCount":0,"successCount":0,"consecutiveSuccessCount":0,"configId":2,"_imageUrl":"assets/img/child.jpg"},{"id":1,"name":"Bob","level":1,"evolutionAuto":true,"attemptCount":0,"successCount":0,"consecutiveSuccessCount":0,"configId":1,"_imageUrl":"https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/220px-SpongeBob_SquarePants_character.svg.png"}]
+[
+  {
+    "id": 0,
+    "name": "Zoé",
+    "level": 2,
+    "evolutionAuto": true,
+    "attemptCount": 0,
+    "successCount": 0,
+    "consecutiveSuccessCount": 0,
+    "configId": 2,
+    "_imageUrl": "assets/img/child.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Bob",
+    "level": 0,
+    "evolutionAuto": true,
+    "attemptCount": 0,
+    "successCount": 0,
+    "consecutiveSuccessCount": 0,
+    "configId": 0,
+    "_imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/220px-SpongeBob_SquarePants_character.svg.png"
+  }
+]

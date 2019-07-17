@@ -8,6 +8,7 @@ export class Word {
   _imageFile: string;
   _completeFileName: string = "";
   _hasImage: boolean = false;
+  _imageUrl: string = "";
   constructor(private _graphemes: WordGrapheme[]) {
     this._fileName = this._graphemes.reduce(
       (fileName, g) => `${fileName}${g.representation}`,
@@ -30,6 +31,14 @@ export class Word {
 
   setCompleteFileName(fileName) {
     this._completeFileName = fileName;
+  }
+
+  get imageUrl() {
+    return this._imageUrl;
+  }
+
+  setImageUrl(url) {
+    this._imageUrl = url;
   }
 
   get hasImage() {

@@ -58,6 +58,5 @@ export class ImageService {
       console.log(file);
       return this.http.post('api/img/', formData);
     }
-
   }
 }
