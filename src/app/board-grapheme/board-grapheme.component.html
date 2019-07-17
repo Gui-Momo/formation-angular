@@ -1,2 +1,3 @@
-<div (mousedown)="playPhonemSound()" appDraggable [data]="grapheme" [style.color]="grapheme.color">
+<div class="grapheme" (mousedown)="playPhonemSound()" appDraggable [data]="grapheme" [style.color]="grapheme.color"
+  config="[config]">
   {{grapheme.representation}}</div>

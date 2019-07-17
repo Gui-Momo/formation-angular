@@ -18,14 +18,22 @@ export class WordGraphemeComponent extends GraphemeComponent implements OnInit {
   @Output() found: EventEmitter<WordGrapheme> = new EventEmitter();
 
   ngOnChanges() {
-    console.log(this.config);
-    console.log(this.grapheme);
-    console.log(this.grapheme.representation);
+    let graphemes = Array.from(document.getElementsByClassName('grapheme') as HTMLCollectionOf<HTMLElement>);
     if (this.config.areComplexGraphemesDisplayed && this.grapheme.representation.length > 1 && !this.grapheme.representation.includes("_")) {
       this.grapheme.setIsFound(true);
     }
     if (this.config.areMutedGraphemesDisplayed && this.grapheme.isMute) {
       this.grapheme.setIsFound(true);
+    }
+    if (!this.config.isCursiveFont) {
+      graphemes.forEach(grapheme => {
+        grapheme.style.fontFamily = "sans-serif";
+      });
+    }
+    if (this.config.isUpperCase && !this.config.isCursiveFont) {
+      graphemes.forEach(grapheme => {
+        grapheme.style.textTransform = "uppercase";
+      });
     }
   }
 
