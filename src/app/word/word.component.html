@@ -1,6 +1,9 @@
-<div class="row no-gutters row-grapheme word-row justify-content-center">
+<div *ngIf="config; else elseBlock" class="row no-gutters row-grapheme word-row justify-content-center">
   <div *ngFor="let wordGrapheme of word.graphemes" class="col-1 box">
     <app-word-grapheme class="in-box" [grapheme]="wordGrapheme" [config]="config" (found)="onFound($event)">
     </app-word-grapheme>
   </div>
 </div>
+<ng-template #elseBlock>
+  <p>Loading......</p>
+</ng-template>

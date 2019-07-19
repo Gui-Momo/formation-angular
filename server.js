@@ -86,7 +86,7 @@ function updateJson(data) {
 let configs = [
   {
     id: 0,
-    isAlphabeticOrder: false,
+    isAlphabeticOrder: true,
     isCursiveFont: false,
     isUpperCase: true,
     areMutedGraphemesDisplayed: true,

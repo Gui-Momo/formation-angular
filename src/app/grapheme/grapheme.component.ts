@@ -16,14 +16,6 @@ export class GraphemeComponent implements OnInit {
   constructor(private _soundService: SoundService) { }
 
   ngOnChanges() {
-    // let graphemes = Array.from(document.getElementsByClassName('grapheme') as HTMLCollectionOf<HTMLElement>);
-    // console.log(graphemes);
-    // if (this.config.isCursiveFont) {
-    //   graphemes.forEach(grapheme => {
-    //     console.log(grapheme);
-    //     grapheme.style.fontFamily = "Cursive standard";
-    //   });
-    // }
   }
 
   ngOnInit() {
