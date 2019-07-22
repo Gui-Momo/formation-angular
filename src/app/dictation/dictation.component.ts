@@ -62,15 +62,30 @@ export class DictationComponent implements OnInit {
         // TODO : get child's config inside childService
         this.configService
           .getConfig(child.configId)
-          .subscribe(config => (this.currentConfig = config));
+          .subscribe(config => this.applyConfig(config));
       });
     }
+  }
 
+  applyConfig(config) {
+    this.currentConfig = config;
+    console.log(this.currentConfig);
+    this.continueInit();
+  }
+
+  continueInit() {
     this.graphemes = this.graphemeService.getGraphemes();
     this.boardGraphemes = [
       ...this.graphemes.vowels,
       ...this.graphemes.consonants
     ];
+
+    if (this.currentConfig.isAlphabeticOrder) {
+      this.boardGraphemes = this.boardGraphemes.sort((a, b) => {
+        return a.representation.localeCompare(b.representation);
+      });
+    }
+
     this.wordService.getWords().subscribe(words => {
       this.words = words;
       this.setRandomCurrentWord();

@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="currentConfig; else elseBlock" class="container">
   <div class="row no-gutters word-row">
     <div class="col-1">
       <div class="text-center" *ngIf="currentChild">
@@ -39,3 +39,6 @@
       (click)="toggleBoardGraphemes()"></app-icon-button>
   </div>
 </div>
+<ng-template #elseBlock>
+  <p>Loading...</p>
+</ng-template>
