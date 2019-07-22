@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { GraphemeComponent } from "../grapheme/grapheme.component";
 import { WordGrapheme } from './word-grapheme.model';
-import { ConfigComponent } from '../config/config.component';
 import { Config } from '../config/config.model';
 
 @Component({
@@ -18,11 +17,16 @@ export class WordGraphemeComponent extends GraphemeComponent implements OnInit {
   @Output() found: EventEmitter<WordGrapheme> = new EventEmitter();
 
   ngOnChanges() {
+  }
+
+  ngOnInit() {
+    this.applyConfig();
+  }
+
+  applyConfig() {
     let graphemes = Array.from(document.getElementsByClassName('grapheme') as HTMLCollectionOf<HTMLElement>);
-    if (this.config.areComplexGraphemesDisplayed && this.grapheme.representation.length > 1 && !this.grapheme.representation.includes("_")) {
-      this.grapheme.setIsFound(true);
-    }
-    if (this.config.areMutedGraphemesDisplayed && this.grapheme.isMute) {
+    if ((this.config.areComplexGraphemesDisplayed && this.grapheme.representation.length > 1 && !this.grapheme.representation.includes("_"))
+      || (this.config.areMutedGraphemesDisplayed && this.grapheme.isMute)) {
       this.grapheme.setIsFound(true);
     }
     if (!this.config.isCursiveFont) {
@@ -35,9 +39,6 @@ export class WordGraphemeComponent extends GraphemeComponent implements OnInit {
         grapheme.style.textTransform = "uppercase";
       });
     }
-  }
-
-  ngOnInit() {
   }
 
   playPhonemSound() {

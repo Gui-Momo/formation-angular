@@ -14,19 +14,23 @@ export class BoardGraphemeComponent extends GraphemeComponent implements OnInit 
   @Input() config: Config;
 
   ngOnChanges() {
-    let graphemes = Array.from(document.getElementsByClassName('grapheme') as HTMLCollectionOf<HTMLElement>);
+  }
+
+  ngOnInit() {
+    this.applyConfig();
+  }
+
+  applyConfig() {
+    let graphemesArray = Array.from(document.getElementsByClassName('grapheme') as HTMLCollectionOf<HTMLElement>);
     if (!this.config.isCursiveFont) {
-      graphemes.forEach(grapheme => {
+      graphemesArray.forEach(grapheme => {
         grapheme.style.fontFamily = "sans-serif";
       });
     }
     if (this.config.isUpperCase && !this.config.isCursiveFont) {
-      graphemes.forEach(grapheme => {
+      graphemesArray.forEach(grapheme => {
         grapheme.style.textTransform = "uppercase";
       });
     }
-  }
-
-  ngOnInit() {
   }
 }
