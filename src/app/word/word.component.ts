@@ -4,6 +4,7 @@ import { Word } from './word.model';
 import { WordGrapheme } from "../word-grapheme/word-grapheme.model";
 import { SoundService } from "../sound/sound.service";
 import { Config } from '../config/config.model';
+import { Grapheme, GraphemeType } from "../grapheme/grapheme.model";
 
 @Component({
   selector: 'app-word',
@@ -15,10 +16,37 @@ export class WordComponent implements OnInit {
   @Input() word: Word;
   @Input() config: Config;
   @Output() found: EventEmitter<Word> = new EventEmitter();
+  ungroupedGraphemesArray: WordGrapheme[] = [];
 
   constructor(private soundService: SoundService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngOnChanges() {
+    this.ungroupedGraphemesArray = [];
+    this.checkConfig();
+  }
+
+  checkConfig() {
+    console.log(this.config);
+    console.log(this.config.areComplexGraphemesGrouped);
+    if (!this.config.areComplexGraphemesGrouped) {
+      this.ungroupComplexGraphemes();
+    }
+  }
+
+  ungroupComplexGraphemes() {
+    this.word.graphemes.forEach(g => {
+      if (g.representation.length > 1 && !g.representation.includes("_")) {
+        g.representation.split('').forEach(simpleGraph => {
+          this.ungroupedGraphemesArray.push(new WordGrapheme(GraphemeType.vowel, simpleGraph, simpleGraph))
+        });
+      } else {
+        this.ungroupedGraphemesArray.push(g);
+      }
+    });
+    this.word.setGraphemes(this.ungroupedGraphemesArray);
+    console.log(this.word.graphemes);
   }
 
   playAllPhonems(graphemeIndex = 0) {

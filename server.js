@@ -103,7 +103,7 @@ let configs = [
     isCursiveFont: false,
     isUpperCase: false,
     areMutedGraphemesDisplayed: true,
-    areComplexGraphemesDisplayed: true,
+    areComplexGraphemesDisplayed: false,
     areComplexGraphemesGrouped: true,
     useAccents: true,
     filterWordsWithMutedGraphemes: false,

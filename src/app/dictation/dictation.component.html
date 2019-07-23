@@ -27,10 +27,10 @@
       <app-reveal-button [word]="currentWord"></app-reveal-button>
     </div>
   </div>
-  <div *ngIf="currentConfig; else elseBlock">
+  <div *ngIf="currentConfig; else elseBlockBis">
     <app-word *ngIf="currentWord" [word]="currentWord" [config]="currentConfig"></app-word>
   </div>
-  <ng-template #elseBlock>
+  <ng-template #elseBlockBis>
     <p>Loading...</p>
   </ng-template>
   <div *ngFor="let row of [0, 1, 2]" class="row no-gutters grapheme-row justify-content-center">
@@ -38,8 +38,8 @@
       <app-board-grapheme class="in-box" [grapheme]="grapheme" [config]="currentConfig"></app-board-grapheme>
     </div>
   </div>
-  <div *ngIf="currentConfig && !currentConfig.areComplexGraphemesDisplayed" class="text-center row-margin-top"
-    class="text-center word-row">
+  <div *ngIf="currentConfig && !currentConfig.areComplexGraphemesDisplayed && currentConfig.areComplexGraphemesGrouped"
+    class="text-center row-margin-top" class="text-center word-row">
     <app-icon-button name="arrow-thick-{{boardArrowOrientation}}" text=" {{boardButtonText}}"
       (click)="toggleBoardGraphemes()"></app-icon-button>
   </div>

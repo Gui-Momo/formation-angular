@@ -69,12 +69,12 @@ export class DictationComponent implements OnInit {
 
   applyConfig(config) {
     this.currentConfig = config;
-    console.log(this.currentConfig);
     this.continueInit();
   }
 
   continueInit() {
     this.graphemes = this.graphemeService.getGraphemes();
+
     this.boardGraphemes = [
       ...this.graphemes.vowels,
       ...this.graphemes.consonants
