@@ -59,6 +59,17 @@ export class WordService {
     }
   }
 
+  getSimpleGraphemsWords(words, complexGraphemes) {
+    const simpleGraphemsWords = words.filter(word => {
+      if (complexGraphemes.some(graph => word._fileName.includes(graph._representation))) {
+        return;
+      } else {
+        return word;
+      }
+    });
+    return simpleGraphemsWords;
+  }
+
   checkImage(word) {
     let file = word._imageFile;
     var xhr = new XMLHttpRequest();
