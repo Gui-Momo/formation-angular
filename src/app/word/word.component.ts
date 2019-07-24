@@ -28,8 +28,6 @@ export class WordComponent implements OnInit {
   }
 
   checkConfig() {
-    console.log(this.config);
-    console.log(this.config.areComplexGraphemesGrouped);
     if (!this.config.areComplexGraphemesGrouped) {
       this.ungroupComplexGraphemes();
     }
@@ -39,14 +37,22 @@ export class WordComponent implements OnInit {
     this.word.graphemes.forEach(g => {
       if (g.representation.length > 1 && !g.representation.includes("_")) {
         g.representation.split('').forEach(simpleGraph => {
-          this.ungroupedGraphemesArray.push(new WordGrapheme(GraphemeType.vowel, simpleGraph, simpleGraph))
+          if (simpleGraph == 'a' ||
+            simpleGraph == 'e' ||
+            simpleGraph == 'i' ||
+            simpleGraph == 'o' ||
+            simpleGraph == 'u' ||
+            simpleGraph == 'y') {
+            this.ungroupedGraphemesArray.push(new WordGrapheme(GraphemeType.vowel, simpleGraph, simpleGraph));
+          } else {
+            this.ungroupedGraphemesArray.push(new WordGrapheme(GraphemeType.consonant, simpleGraph, simpleGraph));
+          }
         });
       } else {
         this.ungroupedGraphemesArray.push(g);
       }
     });
     this.word.setGraphemes(this.ungroupedGraphemesArray);
-    console.log(this.word.graphemes);
   }
 
   playAllPhonems(graphemeIndex = 0) {

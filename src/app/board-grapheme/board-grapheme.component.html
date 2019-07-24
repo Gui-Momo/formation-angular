@@ -1,7 +1,7 @@
 <div *ngIf="config; else elseBlock">
   <div class="grapheme" (mousedown)="playPhonemSound()" appDraggable [data]="grapheme" [style.color]="grapheme.color"
     config="[config]">
-    {{grapheme.representation}}</div>
+    {{grapheme.boardRepresentation}}</div>
 </div>
 <ng-template #elseBlock>
   <p>Loading.....</p>

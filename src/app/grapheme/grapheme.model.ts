@@ -6,6 +6,7 @@ export enum GraphemeType {
 
 export class Grapheme {
   protected color: string;
+  _boardRepresentation: string;
 
   constructor(
     private graphemeType: GraphemeType,
@@ -28,10 +29,19 @@ export class Grapheme {
         this.color = "blue";
         break;
     }
+    this._boardRepresentation = this._representation;
   }
 
   get representation() {
     return this._representation;
+  }
+
+  get boardRepresentation() {
+    return this._boardRepresentation;
+  }
+
+  setBoardRepresentation(r) {
+    this._boardRepresentation = r;
   }
 
   get phonems() {

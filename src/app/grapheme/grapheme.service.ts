@@ -45,4 +45,30 @@ export class GraphemeService {
 
     return graphemes;
   }
+
+  removeAccents() {
+    const graphemes = this.getGraphemes();
+    graphemes.vowels.forEach(g => {
+      switch (g.representation) {
+        case 'â':
+          g.setBoardRepresentation('a');
+          break;
+        case 'é':
+        case 'è':
+        case 'ê':
+          g.setBoardRepresentation('e');
+          break;
+        case 'ï':
+        case 'î':
+          g.setBoardRepresentation('i');
+          break;
+      }
+    });
+    graphemes.consonants.forEach(g => {
+      if (g.representation == 'ç') {
+        g.setBoardRepresentation('c');
+      }
+    });
+    return graphemes;
+  }
 }

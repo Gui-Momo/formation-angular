@@ -9,7 +9,6 @@ export class Word {
   _completeFileName: string = "";
   _hasImage: boolean = false;
   _imageUrl: string = "";
-  _ungroupedGraphemes: WordGrapheme[] = [];
   constructor(private _graphemes: WordGrapheme[]) {
     this._fileName = this._graphemes.reduce(
       (fileName, g) => `${fileName}${g.representation}`,
@@ -56,13 +55,5 @@ export class Word {
 
   isFound() {
     return this._graphemes.every(g => g.isFound);
-  }
-
-  get ungroupedGraphemes() {
-    return this._ungroupedGraphemes;
-  }
-
-  setUngroupedGraphemes(graph) {
-    this._ungroupedGraphemes = graph;
   }
 }

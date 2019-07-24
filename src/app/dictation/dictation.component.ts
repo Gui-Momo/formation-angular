@@ -73,7 +73,11 @@ export class DictationComponent implements OnInit {
   }
 
   continueInit() {
-    this.graphemes = this.graphemeService.getGraphemes();
+    if (!this.currentConfig.useAccents) {
+      this.graphemes = this.graphemeService.removeAccents();
+    } else {
+      this.graphemes = this.graphemeService.getGraphemes();
+    }
 
     this.boardGraphemes = [
       ...this.graphemes.vowels,
@@ -85,6 +89,8 @@ export class DictationComponent implements OnInit {
         return a.representation.localeCompare(b.representation);
       });
     }
+
+    console.log(this.boardGraphemes);
 
     this.wordService.getWords().subscribe(words => {
       this.words = words;
