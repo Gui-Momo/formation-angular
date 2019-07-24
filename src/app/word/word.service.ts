@@ -70,6 +70,25 @@ export class WordService {
     return simpleGraphemsWords;
   }
 
+  getUnmutedGraphemsWords(words) {
+    const unmutedGraphemsWords = words.filter(this.filterMutedGraphemsWords);
+    return unmutedGraphemsWords;
+  }
+
+  filterMutedGraphemsWords(word) {
+    let mute = false;
+    word._graphemes.forEach(gr => {
+      if (gr._isMute) {
+        mute = true;
+      }
+    });
+    if (mute) {
+      return;
+    } else {
+      return word;
+    }
+  }
+
   checkImage(word) {
     let file = word._imageFile;
     var xhr = new XMLHttpRequest();

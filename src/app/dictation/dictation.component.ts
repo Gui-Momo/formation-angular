@@ -92,15 +92,19 @@ export class DictationComponent implements OnInit {
 
     this.wordService.getWords().subscribe(words => {
       this.words = words;
-
+      console.log(this.words);
       if (this.currentConfig.filterWordsWithAccents) {
         this.words = this.wordService.getUnaccentedWords(this.words);
       }
-
+      console.log(this.words);
       if (this.currentConfig.filterWordsWithComplexGraphemes) {
         this.words = this.wordService.getSimpleGraphemsWords(this.words, this.graphemes.complexes);
       }
-
+      console.log(this.words);
+      if (this.currentConfig.filterWordsWithMutedGraphemes) {
+        this.words = this.wordService.getUnmutedGraphemsWords(this.words);
+      }
+      console.log(this.words);
       this.setRandomCurrentWord();
     });
   }
