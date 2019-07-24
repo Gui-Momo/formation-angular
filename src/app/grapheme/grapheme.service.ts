@@ -49,9 +49,7 @@ export class GraphemeService {
   removeAccents() {
     const graphemes = this.getGraphemes();
     const filteredVowels = graphemes.vowels.filter(this.filterVowels);
-    console.log(filteredVowels);
     const filteredConsonants = graphemes.consonants.filter(this.filterConsonants);
-    console.log(filteredConsonants);
     const filteredGraphemes: LanguageGraphemes = {
       vowels: [],
       consonants: [],
@@ -69,14 +67,10 @@ export class GraphemeService {
       filteredGraphemes.complexes.push(this.createGrapheme(GraphemeType.complex, representation));
     });
 
-    console.log(filteredGraphemes);
-
     return filteredGraphemes;
   }
 
   filterVowels(gr) {
-    console.log(gr);
-    console.log(gr.representation);
     if (gr.representation == 'â' ||
       gr.representation == 'é' ||
       gr.representation == 'è' ||

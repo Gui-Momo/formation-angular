@@ -49,6 +49,20 @@ export class WordGraphemeComponent extends GraphemeComponent implements OnInit {
   }
 
   onDrop(droppedGrapheme: any, wordGrapheme: WordGrapheme) {
+    if (!this.config.useAccents) {
+      if ((droppedGrapheme._representation == 'a' && wordGrapheme.representation == 'â') ||
+        (droppedGrapheme._representation == 'e' && wordGrapheme.representation == 'é') ||
+        (droppedGrapheme._representation == 'e' && wordGrapheme.representation == 'è') ||
+        (droppedGrapheme._representation == 'e' && wordGrapheme.representation == 'ê') ||
+        (droppedGrapheme._representation == 'i' && wordGrapheme.representation == 'î') ||
+        (droppedGrapheme._representation == 'i' && wordGrapheme.representation == 'ï') ||
+        (droppedGrapheme._representation == 'c' && wordGrapheme.representation == 'ç')) {
+        wordGrapheme.setIsFound(true);
+        this.soundService.playSound("juste").then(() => {
+          this.found.emit(wordGrapheme);
+        });
+      }
+    }
     if (droppedGrapheme._representation === wordGrapheme.representation) {
       wordGrapheme.setIsFound(true);
       this.soundService.playSound("juste").then(() => {
