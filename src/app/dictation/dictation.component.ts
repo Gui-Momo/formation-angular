@@ -90,10 +90,12 @@ export class DictationComponent implements OnInit {
       });
     }
 
-    console.log(this.boardGraphemes);
-
     this.wordService.getWords().subscribe(words => {
       this.words = words;
+      if (this.currentConfig.filterWordsWithAccents) {
+        this.words = this.wordService.getUnaccentedWords(this.words);
+      }
+
       this.setRandomCurrentWord();
     });
   }

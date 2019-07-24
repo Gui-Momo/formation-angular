@@ -40,6 +40,25 @@ export class WordService {
     );
   }
 
+  getUnaccentedWords(words) {
+    const unaccentedWords = words.filter(this.filterAccentedWords);
+    return unaccentedWords;
+  }
+
+  filterAccentedWords(word) {
+    if (word._fileName.includes('â') ||
+      word._fileName.includes('é') ||
+      word._fileName.includes('è') ||
+      word._fileName.includes('ê') ||
+      word._fileName.includes('î') ||
+      word._fileName.includes('ï') ||
+      word._fileName.includes('ç')) {
+      return;
+    } else {
+      return word;
+    }
+  }
+
   checkImage(word) {
     let file = word._imageFile;
     var xhr = new XMLHttpRequest();
