@@ -48,27 +48,52 @@ export class GraphemeService {
 
   removeAccents() {
     const graphemes = this.getGraphemes();
-    graphemes.vowels.forEach(g => {
-      switch (g.representation) {
-        case 'â':
-          g.setBoardRepresentation('a');
-          break;
-        case 'é':
-        case 'è':
-        case 'ê':
-          g.setBoardRepresentation('e');
-          break;
-        case 'ï':
-        case 'î':
-          g.setBoardRepresentation('i');
-          break;
-      }
+    const filteredVowels = graphemes.vowels.filter(this.filterVowels);
+    console.log(filteredVowels);
+    const filteredConsonants = graphemes.consonants.filter(this.filterConsonants);
+    console.log(filteredConsonants);
+    const filteredGraphemes: LanguageGraphemes = {
+      vowels: [],
+      consonants: [],
+      complexes: []
+    }
+    filteredVowels.forEach(grapheme => {
+      filteredGraphemes.vowels.push(grapheme);
     });
-    graphemes.consonants.forEach(g => {
-      if (g.representation == 'ç') {
-        g.setBoardRepresentation('c');
-      }
+
+    filteredConsonants.forEach(grapheme => {
+      filteredGraphemes.consonants.push(grapheme);
     });
-    return graphemes;
+
+    GRAPHEMES.complexes.forEach(representation => {
+      filteredGraphemes.complexes.push(this.createGrapheme(GraphemeType.complex, representation));
+    });
+
+    console.log(filteredGraphemes);
+
+    return filteredGraphemes;
+  }
+
+  filterVowels(gr) {
+    console.log(gr);
+    console.log(gr.representation);
+    if (gr.representation == 'â' ||
+      gr.representation == 'é' ||
+      gr.representation == 'è' ||
+      gr.representation == 'ê' ||
+      gr.representation == 'ï' ||
+      gr.representation == 'î') {
+      return;
+    } else {
+      return gr.representation;
+    }
+  }
+
+  filterConsonants(gr) {
+    if (gr.representation == 'ç') {
+      return;
+    } else {
+      return gr.representation;
+    }
   }
 }
