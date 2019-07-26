@@ -1,0 +1,133 @@
+<h1>Créez votre mot</h1>
+<div class="col-1">
+  <app-icon-button name="arrow-thick-left" (click)="this.location.back()"></app-icon-button>
+</div>
+<hr>
+<div>
+  <h3>Règles de création de mots :</h3>
+  <p>Il est important, afin que l'application fonctionne correctement, que les mots ajoutés ici suivent quelques règles.
+    En voici quelques exemples :</p>
+  <ul>
+    <li>Indiquez une lettre par champ de formulaire.</li>
+    <li>Lorsqu'il s'agit d'un graphème complexe ("in, "ou", "euil"), réservez lui un champ de formulaire</li>
+    <li>Si un graphème peut représenter plusieurs réalisation phoniques, vous pouvez séparer la lettre et sa réalisation
+      sonore par un underscore (_)</li>
+    <li>Si une lettre est muette, vous pouvez la faire suivre par un underscore(_)</li>
+  </ul>
+</div>
+<div>
+  <p><b>Exemple : Ajouter le mot "ceinture"</b></p>
+  <ul>
+    <li><b>"c_s"</b> - le "C" de ceinture se prononce "s"</li>
+    <li><b>"ein"</b> - il s'agit d'un grapheme complexe</li>
+    <li><b>"t"</b></li>
+    <li><b>"u"</b></li>
+    <li><b>"r"</b></li>
+    <li><b>"e_"</b> - le "e" de "ceinture" ne se prononce pas, il est muet</li>
+  </ul>
+  <small>Vous pouvez trouver un liste des graphèmes complexes ainsi qu'une liste des différentes réalisations sonores
+    des graphèmes à la fin de cette page.</small>
+</div>
+<div>
+  <h1>Formulaire de création de mot.</h1>
+  <form (ngSubmit)="onSubmit()" id="wordCreator">
+    <p>
+      <label for="letter1">Lettre(s) :</label>
+      <input type="text" id="letter1" name="letter1">
+    </p>
+    <p>
+      <label for="letter2">Lettre(s) :</label>
+      <input type="text" id="letter2" name="letter2">
+    </p>
+    <p>
+      <label for="letter3">Lettre(s) :</label>
+      <input type="text" id="letter3" name="letter3">
+    </p>
+    <p>
+      <label for="letter4">Lettre(s) :</label>
+      <input type="text" id="letter4" name="letter4">
+    </p>
+    <p>
+      <label for="letter5">Lettre(s) :</label>
+      <input type="text" id="letter5" name="letter5">
+    </p>
+    <p>
+      <label for="letter6">Lettre(s) :</label>
+      <input type="text" id="letter6" name="letter6">
+    </p>
+    <p>
+      <label for="letter7">Lettre(s) :</label>
+      <input type="text" id="letter7" name="letter7">
+    </p>
+    <p>
+      <label for="letter8">Lettre(s) :</label>
+      <input type="text" id="letter8" name="letter8">
+    </p>
+    <p>
+      <label for="letter9">Lettre(s) :</label>
+      <input type="text" id="letter9" name="letter9">
+    </p>
+    <p>
+      <label for="letter10">Lettre(s) :</label>
+      <input type="text" id="letter10" name="letter10">
+    </p>
+    <p>
+      <label for="letter11">Lettre(s) :</label>
+      <input type="text" id="letter11" name="letter11">
+    </p>
+    <p>
+      <label for="letter12">Lettre(s) :</label>
+      <input type="text" id="letter12" name="letter12">
+    </p>
+
+    <button type="submit">Ajouter ce mot</button>
+  </form>
+</div>
+<div>
+  <h4>Liste des graphèmes pouvant avoir plusieurs réalisations sonores :</h4>
+  <ul>
+    <li><b>e</b> - réalisations possibles : e, é, ou è</li>
+    <li><b>c</b> - réalisations possibles : c ou s</li>
+    <li><b>g</b> - réalisations possibles : g ou j</li>
+    <li><b>s</b> - réalisations possibles : s ou z</li>
+    <li><b>x</b> - réalisations possibles : x, ks ou s</li>
+    <li><b>o</b> - réalisations possibles : o ou ô</li>
+    <li><b>w</b> - réalisations possibles : w ou v</li>
+  </ul>
+</div>
+<div>
+  <h4>Liste des graphèmes complexes :</h4>
+  <p>"ou",
+    "ai",
+    "ei",
+    "er",
+    "ed",
+    "et",
+    "ette",
+    "en",
+    "em",
+    "an",
+    "am",
+    "on",
+    "tion",
+    "oi",
+    "oin",
+    "ch",
+    "ph",
+    "gu",
+    "qu",
+    "eau",
+    "au",
+    "ain",
+    "in",
+    "un",
+    "ein",
+    "ien",
+    "œu",
+    "eu",
+    "ill",
+    "euil",
+    "ail",
+    "eil",
+    "eille"</p>
+</div>

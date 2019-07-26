@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminConfigComponent } from './admin-config/admin-config.component';
 import { ConfigComponent } from './config/config.component';
 import { WordlistComponent } from './wordlist/wordlist.component';
+import { WordCreatorComponent } from './word-creator/word-creator.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "admin/config", component: AdminConfigComponent },
   { path: "config/:id", component: ConfigComponent },
   { path: "wordlist", component: WordlistComponent },
+  { path: "create-word", component: WordCreatorComponent }
 ];
 
 @NgModule({

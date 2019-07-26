@@ -10,6 +10,9 @@ app.use(express.static(__dirname + '/dist/formation-angular'));
 
 const LEVEL_GRAND_ID = 2;
 let children;
+let words;
+
+// Children
 
 fs.readFile(__dirname + '/src/assets/data/children.json', (err, jsonString) => {
   if (err) {
@@ -46,7 +49,7 @@ app.post("/api/children", (req, res) => {
   children.push(newChild);
 
   const newChildrenArray = JSON.stringify(children);
-  updateJson(newChildrenArray);
+  updateChildrenJson(newChildrenArray);
 });
 
 app.put("/api/children/:id", (req, res) => {
@@ -57,7 +60,7 @@ app.put("/api/children/:id", (req, res) => {
   children[index] = updatedChild;
 
   const newChildrenArray = JSON.stringify(children);
-  updateJson(newChildrenArray);
+  updateChildrenJson(newChildrenArray);
 });
 
 app.delete("/api/children/:id", (req, res) => {
@@ -70,10 +73,10 @@ app.delete("/api/children/:id", (req, res) => {
   }
   res.send("{}");
   const newChildrenArray = JSON.stringify(children);
-  updateJson(newChildrenArray);
+  updateChildrenJson(newChildrenArray);
 });
 
-function updateJson(data) {
+function updateChildrenJson(data) {
   fs.writeFile(__dirname + '/src/assets/data/children.json', data, err => {
     if (err) {
       console.log('Error writing file ', err);
@@ -82,6 +85,45 @@ function updateJson(data) {
     }
   });
 }
+
+// Words
+
+fs.readFile(__dirname + '/src/assets/data/words-fr.json', (err, jsonString) => {
+  if (err) {
+    console.log("File read failed ", err)
+    return
+  }
+  try {
+    words = JSON.parse(jsonString);
+    console.log('words fetched');
+  } catch (err) {
+    console.log('Error parsing Json file ', err);
+  }
+});
+
+function updateWordsJson(data) {
+  fs.writeFile(__dirname + '/src/assets/data/words-fr.json', data, err => {
+    if (err) {
+      console.log('Error writing file ', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+}
+
+app.post("/api/words", (req, res) => {
+  try {
+    const newWord = req.body;
+    words.words.push(newWord);
+    const newWordsArray = JSON.stringify(words);
+    updateWordsJson(newWordsArray);
+    res.send(JSON.stringify(newWord));
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+// Configs
 
 let configs = [
   {
@@ -160,6 +202,8 @@ app.put("/api/configs/:id", (req, res) => {
 function deleteConfig(configId) {
   configs = configs.filter(c => c.id !== configId);
 }
+
+// Images
 
 app.use(formidableMiddleware({
   type: 'multipart'

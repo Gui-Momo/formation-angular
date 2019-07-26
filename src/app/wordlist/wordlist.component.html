@@ -2,6 +2,9 @@
 <div class="col-1">
   <app-icon-button name="arrow-thick-left" (click)="this.location.back()"></app-icon-button>
 </div>
+<div class="col-1 text-center">
+  <app-icon-button name="plus" routerLink="/create-word"></app-icon-button>
+</div>
 <ul class="words">
   <li *ngFor="let word of words">
     <div class="row">

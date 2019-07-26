@@ -54,8 +54,6 @@ export class ImageService {
       entity.setImageUrl('assets/img/' + file.name);
       const formData = new FormData();
       formData.append('image', file);
-      console.log(entity);
-      console.log(file);
       return this.http.post('api/img/', formData);
     }
   }
